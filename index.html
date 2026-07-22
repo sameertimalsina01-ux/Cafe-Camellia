@@ -27,7 +27,6 @@
   a{text-decoration:none;color:inherit;}
   .container{max-width:1100px;margin:0 auto;padding:0 24px;}
 
-  /* NAV */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
     background:rgba(250,243,234,0.9);
@@ -48,7 +47,6 @@
   .nav-cta:hover{background:var(--deep);}
   .menu-toggle{display:none;font-size:26px;background:none;border:none;cursor:pointer;color:var(--deep);}
 
-  /* HERO */
   .hero{
     min-height:100vh;display:flex;align-items:center;
     background:
@@ -79,6 +77,7 @@
     border-radius:30px;font-weight:500;font-size:15px;
     box-shadow:0 8px 24px rgba(199,107,94,0.35);transition:transform 0.2s;
     display:inline-block;
+    border:none;cursor:pointer;
   }
   .btn-primary:hover{transform:translateY(-2px);}
   .btn-secondary{
@@ -87,7 +86,6 @@
   }
   .btn-secondary:hover{background:var(--deep);color:var(--white);}
 
-  /* STATS BAR */
   .stats{
     display:flex;justify-content:center;gap:60px;flex-wrap:wrap;
     padding:50px 24px;background:var(--white);
@@ -96,14 +94,12 @@
   .stat .num{font-family:'Playfair Display',serif;font-size:34px;color:var(--rose);font-weight:600;}
   .stat .label{font-size:13px;color:#7a6a62;text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
 
-  /* SECTION HEADER */
   .section{padding:100px 0;}
   .section-header{text-align:center;max-width:600px;margin:0 auto 60px;}
   .section-tag{color:var(--rose);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
   .section-header h2{font-size:40px;margin-top:12px;color:var(--deep);}
   .section-header p{color:#6b5b53;margin-top:14px;font-size:16px;}
 
-  /* ABOUT */
   .about{background:var(--white);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
   .about-img{
@@ -121,7 +117,6 @@
     font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;
   }
 
-  /* MENU */
   .menu-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:28px;
@@ -143,7 +138,6 @@
     font-size:11px;padding:4px 10px;border-radius:20px;margin-bottom:10px;font-weight:500;
   }
 
-  /* REVIEWS */
   .reviews{background:var(--deep);color:var(--cream);}
   .reviews .section-header h2, .reviews .section-tag{color:var(--cream);}
   .reviews .section-header p{color:#cbb9b1;}
@@ -162,7 +156,6 @@
   .reviewer .name{font-weight:500;font-size:14px;}
   .reviewer .meta{font-size:12px;color:#a89a92;}
 
-  /* VISIT / CONTACT */
   .visit{background:var(--white);}
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
   .info-row{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start;}
@@ -178,9 +171,82 @@
     border:1px dashed rgba(58,43,37,0.2);color:#a09088;font-size:14px;text-align:center;padding:20px;
   }
 
-  /* FOOTER */
   footer{background:var(--deep);color:#cbb9b1;text-align:center;padding:40px 24px;font-size:13px;}
   footer .logo{color:var(--cream);margin-bottom:10px;display:block;font-size:20px;}
+
+  .floating-order-btn{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:200;
+    background:var(--sage);
+    color:var(--white);
+    padding:14px 22px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 8px 24px rgba(58,43,37,0.25);
+    transition:transform 0.2s, background 0.2s;
+    animation:pulse 2.5s infinite;
+  }
+  .floating-order-btn:hover{
+    background:var(--rose);
+    transform:translateY(-3px);
+  }
+  .floating-order-btn span{
+    font-size:18px;
+  }
+
+  @keyframes pulse{
+    0%   { box-shadow:0 8px 24px rgba(58,43,37,0.25), 0 0 0 0 rgba(124,140,103,0.5); }
+    70%  { box-shadow:0 8px 24px rgba(58,43,37,0.25), 0 0 0 14px rgba(124,140,103,0); }
+    100% { box-shadow:0 8px 24px rgba(58,43,37,0.25), 0 0 0 0 rgba(124,140,103,0); }
+  }
+
+  .modal-overlay{
+    display:none;
+    position:fixed; inset:0; z-index:300;
+    background:rgba(58,43,37,0.5);
+    align-items:center; justify-content:center;
+    padding:20px;
+  }
+  .modal-overlay.active{ display:flex; }
+  .modal-box{
+    background:var(--white);
+    border-radius:24px;
+    padding:32px;
+    max-width:440px;
+    width:100%;
+    max-height:85vh;
+    overflow-y:auto;
+  }
+  .modal-header{ display:flex; justify-content:space-between; align-items:center; }
+  .modal-header h3{ font-size:24px; }
+  .modal-close{
+    background:none; border:none; font-size:26px; cursor:pointer; color:var(--deep);
+    line-height:1;
+  }
+  .modal-sub{ color:#7a6a62; font-size:14px; margin:8px 0 20px; }
+  .order-item{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 0; border-bottom:1px solid rgba(58,43,37,0.08);
+    font-size:15px;
+  }
+  .qty-control{ display:flex; align-items:center; gap:14px; }
+  .qty-control button{
+    width:30px; height:30px; border-radius:50%; border:1px solid var(--deep);
+    background:none; font-size:16px; cursor:pointer; color:var(--deep);
+  }
+  .qty-control button:hover{ background:var(--rose); color:var(--white); border-color:var(--rose); }
+  .qty{ min-width:16px; text-align:center; font-weight:500; }
+  .custom-item-note{
+    font-size:12px; color:#a09088; margin-top:6px;
+  }
 
   @media(max-width:768px){
     .nav-links{display:none;}
@@ -188,6 +254,12 @@
     .hero h1{font-size:38px;}
     .about-grid, .visit-grid{grid-template-columns:1fr;}
     .stats{gap:30px;}
+    .floating-order-btn{
+      bottom:16px;
+      right:16px;
+      padding:12px 18px;
+      font-size:13px;
+    }
   }
 </style>
 </head>
@@ -252,38 +324,45 @@
       <p>The dishes our regulars can't stop talking about.</p>
     </div>
     <div class="menu-grid">
+
       <div class="menu-card">
         <div class="popular-tag">Most loved</div>
         <div class="icon">🍰</div>
         <h4>Signature cheesecake</h4>
         <p>Our most talked-about dessert — rich, creamy, and the reason people come back.</p>
       </div>
+
       <div class="menu-card">
         <div class="popular-tag">Most loved</div>
         <div class="icon">🍳</div>
         <h4>Camellia special breakfast</h4>
         <p>A hearty plate built for slow mornings and long conversations.</p>
       </div>
+
       <div class="menu-card">
         <div class="icon">☕</div>
         <h4>Vienna latte</h4>
         <p>Smooth, balanced, and a guest favorite alongside our ice cream latte.</p>
       </div>
+
       <div class="menu-card">
         <div class="icon">🥐</div>
         <h4>Croissant</h4>
         <p>Buttery and flaky, best paired with a warm cappuccino.</p>
       </div>
+
       <div class="menu-card">
         <div class="icon">🧇</div>
         <h4>Waffle & granola</h4>
         <p>Light, wholesome options for an easy start to the day.</p>
       </div>
+
       <div class="menu-card">
         <div class="icon">🍫</div>
         <h4>Chocolate brownie</h4>
         <p>Dense, fudgy, and perfect with a scoop on the side.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -357,6 +436,110 @@
   <span class="logo">Camellia</span>
   <p>Cafe Camellia · Pokhara, Nepal · Made with ♥ for our regulars</p>
 </footer>
+
+<!-- FLOATING ORDER BUTTON -->
+<button class="floating-order-btn" onclick="openOrderModal()" aria-label="Order Now">
+  <span>💬</span> Order Now
+</button>
+
+<!-- ORDER MODAL -->
+<div id="orderModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Place your order</h3>
+      <button onclick="closeOrderModal()" class="modal-close">&times;</button>
+    </div>
+    <p class="modal-sub">Select popular items, or tell us what else you'd like.</p>
+
+    <div class="order-items" id="orderItems">
+      <div class="order-item" data-name="Signature Cheesecake">
+        <span>🍰 Signature Cheesecake</span>
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">−</button>
+          <span class="qty">0</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+      <div class="order-item" data-name="Camellia Special Breakfast">
+        <span>🍳 Camellia Special Breakfast</span>
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">−</button>
+          <span class="qty">0</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+      <div class="order-item" data-name="Vienna Latte">
+        <span>☕ Vienna Latte</span>
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">−</button>
+          <span class="qty">0</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+      <div class="order-item" data-name="French Omelette">
+        <span>🍳 French Omelette</span>
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">−</button>
+          <span class="qty">0</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="order-item" style="flex-direction:column; align-items:stretch; gap:8px;">
+        <span>✏️ Something else? Tell us what you'd like:</span>
+        <input 
+          type="text" 
+          id="customItem" 
+          placeholder="e.g. 2x Iced Latte, 1x Granola Bowl" 
+          style="padding:10px 14px; border:1px solid rgba(58,43,37,0.15); border-radius:12px; font-family:'Poppins',sans-serif; font-size:14px; outline:none;">
+        <span class="custom-item-note">Full menu available in person — ask us anything!</span>
+      </div>
+    </div>
+
+    <button class="btn-primary" style="width:100%; margin-top:20px; text-align:center;" onclick="sendOrder()">
+      Send Order on WhatsApp
+    </button>
+  </div>
+</div>
+
+<script>
+function openOrderModal(){
+  document.getElementById('orderModal').classList.add('active');
+}
+function closeOrderModal(){
+  document.getElementById('orderModal').classList.remove('active');
+}
+function changeQty(btn, delta){
+  const qtyEl = btn.parentElement.querySelector('.qty');
+  let val = parseInt(qtyEl.textContent) + delta;
+  if(val < 0) val = 0;
+  qtyEl.textContent = val;
+}
+function sendOrder(){
+  const items = document.querySelectorAll('.order-item[data-name]');
+  let orderLines = [];
+  items.forEach(item => {
+    const qty = parseInt(item.querySelector('.qty').textContent);
+    if(qty > 0){
+      orderLines.push(`${qty}x ${item.getAttribute('data-name')}`);
+    }
+  });
+
+  const customItem = document.getElementById('customItem').value.trim();
+  if(customItem){
+    orderLines.push(`Other: ${customItem}`);
+  }
+
+  if(orderLines.length === 0){
+    alert('Please select at least one item or describe what you\'d like.');
+    return;
+  }
+
+  const message = `Hi! I'd like to order:\n${orderLines.join('\n')}`;
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/9779814176338?text=${encoded}`, '_blank');
+}
+</script>
 
 </body>
 </html>
