@@ -117,22 +117,37 @@
     font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;
   }
 
+  /* MENU CATEGORIES */
+  .menu-category{margin-bottom:60px;}
+  .menu-category:last-child{margin-bottom:0;}
+  .menu-category-title{
+    font-size:26px;color:var(--rose);margin-bottom:24px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .menu-category-title::after{
+    content:"";flex:1;height:1px;background:rgba(199,107,94,0.25);
+  }
   .menu-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:28px;
+    gap:22px;
   }
   .menu-card{
-    background:var(--white);border-radius:20px;padding:28px;
+    background:var(--white);border-radius:20px;padding:24px;
     transition:transform 0.25s, box-shadow 0.25s;
     border:1px solid rgba(58,43,37,0.06);
   }
   .menu-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(58,43,37,0.1);}
   .menu-card .icon{
-    width:56px;height:56px;border-radius:16px;background:var(--blush);
-    display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;
+    width:50px;height:50px;border-radius:14px;background:var(--blush);
+    display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;
   }
-  .menu-card h4{font-size:19px;margin-bottom:8px;}
-  .menu-card p{font-size:14px;color:#7a6a62;}
+  .menu-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .menu-card h4{font-size:17px;margin-bottom:6px;}
+  .menu-card .price{
+    font-family:'Playfair Display',serif;font-weight:600;color:var(--rose);
+    font-size:16px;white-space:nowrap;
+  }
+  .menu-card p{font-size:13px;color:#7a6a62;}
   .popular-tag{
     display:inline-block;background:var(--rose);color:var(--white);
     font-size:11px;padding:4px 10px;border-radius:20px;margin-bottom:10px;font-weight:500;
@@ -235,8 +250,10 @@
   .order-item{
     display:flex; justify-content:space-between; align-items:center;
     padding:14px 0; border-bottom:1px solid rgba(58,43,37,0.08);
-    font-size:15px;
+    font-size:14px;
   }
+  .order-item .item-name{display:flex; flex-direction:column;}
+  .order-item .item-price{font-size:12px; color:#a09088; margin-top:2px;}
   .qty-control{ display:flex; align-items:center; gap:14px; }
   .qty-control button{
     width:30px; height:30px; border-radius:50%; border:1px solid var(--deep);
@@ -274,7 +291,7 @@
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#visit">Visit</a></li>
     </ul>
-    <a href="tel:+9779814176338" class="nav-cta">Call to reserve</a>
+    <a href="https://wa.me/9779814176338?text=Hi!%20I'd%20like%20to%20reserve%20a%20table" target="_blank" class="nav-cta">Reserve a table</a>
   </nav>
 </header>
 
@@ -285,7 +302,7 @@
       <h1>Slow mornings, <em>good</em> coffee, better company.</h1>
       <p>Tucked into Pokhara, Cafe Camellia is where cheesecake, cappuccino, and calm mornings meet. Dine in or take away — either way, you'll want to come back.</p>
       <div class="hero-buttons">
-        <a href="tel:+9779814176338" class="btn-primary">Reserve a table</a>
+        <a href="https://wa.me/9779814176338?text=Hi!%20I'd%20like%20to%20reserve%20a%20table" target="_blank" class="btn-primary">Reserve a table</a>
         <a href="#menu" class="btn-secondary">View menu</a>
       </div>
     </div>
@@ -321,49 +338,110 @@
     <div class="section-header">
       <div class="section-tag">What to order</div>
       <h2>Fan favorites</h2>
-      <p>The dishes our regulars can't stop talking about.</p>
+      <p>A taste of our menu — the dishes and drinks our regulars can't stop talking about.</p>
     </div>
-    <div class="menu-grid">
 
-      <div class="menu-card">
-        <div class="popular-tag">Most loved</div>
-        <div class="icon">🍰</div>
-        <h4>Signature cheesecake</h4>
-        <p>Our most talked-about dessert — rich, creamy, and the reason people come back.</p>
+    <!-- DRINKS -->
+    <div class="menu-category">
+      <h3 class="menu-category-title">☕ Drinks</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="popular-tag">Our signature</div>
+          <div class="icon">☕</div>
+          <div class="menu-card-top"><h4>Cream Latte (Vienna)</h4><span class="price">Rs 400</span></div>
+          <p>Our house specialty hot latte, rich and velvety.</p>
+        </div>
+        <div class="menu-card">
+          <div class="popular-tag">Our signature</div>
+          <div class="icon">🧊</div>
+          <div class="menu-card-top"><h4>Iced Cream Latte (Vienna)</h4><span class="price">Rs 450</span></div>
+          <p>The cold version of our signature latte — a guest favorite.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">☕</div>
+          <div class="menu-card-top"><h4>Cappuccino (Cinnamon Topping)</h4><span class="price">Rs 310</span></div>
+          <p>Classic cappuccino finished with a dusting of cinnamon.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🍵</div>
+          <div class="menu-card-top"><h4>Turmeric Latte</h4><span class="price">Rs 240</span></div>
+          <p>A warm, earthy alternative for something a little different.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🫖</div>
+          <div class="menu-card-top"><h4>Nepali Breakfast Tea</h4><span class="price">Rs 190</span></div>
+          <p>A comforting local classic, served hot.</p>
+        </div>
       </div>
-
-      <div class="menu-card">
-        <div class="popular-tag">Most loved</div>
-        <div class="icon">🍳</div>
-        <h4>Camellia special breakfast</h4>
-        <p>A hearty plate built for slow mornings and long conversations.</p>
-      </div>
-
-      <div class="menu-card">
-        <div class="icon">☕</div>
-        <h4>Vienna latte</h4>
-        <p>Smooth, balanced, and a guest favorite alongside our ice cream latte.</p>
-      </div>
-
-      <div class="menu-card">
-        <div class="icon">🥐</div>
-        <h4>Croissant</h4>
-        <p>Buttery and flaky, best paired with a warm cappuccino.</p>
-      </div>
-
-      <div class="menu-card">
-        <div class="icon">🧇</div>
-        <h4>Waffle & granola</h4>
-        <p>Light, wholesome options for an easy start to the day.</p>
-      </div>
-
-      <div class="menu-card">
-        <div class="icon">🍫</div>
-        <h4>Chocolate brownie</h4>
-        <p>Dense, fudgy, and perfect with a scoop on the side.</p>
-      </div>
-
     </div>
+
+    <!-- BRUNCH -->
+    <div class="menu-category">
+      <h3 class="menu-category-title">🍳 Brunch (All Day)</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="popular-tag">Most loved</div>
+          <div class="icon">🍳</div>
+          <div class="menu-card-top"><h4>Camellia Special (Sausage/Bacon)</h4><span class="price">Rs 590 / 640</span></div>
+          <p>Two sunny-side-up eggs, roasted veg, and a croissant with cream cheese.</p>
+        </div>
+        <div class="menu-card">
+          <div class="popular-tag">Popular</div>
+          <div class="icon">🥔</div>
+          <div class="menu-card-top"><h4>Blossom Special</h4><span class="price">Rs 490</span></div>
+          <p>Masala potatoes with vegetables, two fried eggs, fruits, butter toast & jam.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🍞</div>
+          <div class="menu-card-top"><h4>French Toast (Sweet)</h4><span class="price">Rs 480</span></div>
+          <p>A sweet, comforting classic — great with coffee.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🥐</div>
+          <div class="menu-card-top"><h4>Croissant, Cream Cheese</h4><span class="price">Rs 270</span></div>
+          <p>Buttery and flaky, filled with smooth cream cheese.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🥣</div>
+          <div class="menu-card-top"><h4>Homemade Granola</h4><span class="price">Rs 290 / 490</span></div>
+          <p>Small or regular size — a light, wholesome favorite.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🍓</div>
+          <div class="menu-card-top"><h4>Smoothie Bowl</h4><span class="price">Rs 520 / 570</span></div>
+          <p>Strawberry & beetroot, or vegan — fresh and colorful.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="menu-category">
+      <h3 class="menu-category-title">🍰 Desserts</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="popular-tag">Most loved</div>
+          <div class="icon">🍰</div>
+          <div class="menu-card-top"><h4>Cheesecake</h4><span class="price">Rs 570</span></div>
+          <p>Our most talked-about dessert — rich, creamy, and the reason people come back.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">☕</div>
+          <div class="menu-card-top"><h4>Tiramisu Original</h4><span class="price">Rs 490</span></div>
+          <p>A classic Italian favorite, also available in strawberry or matcha.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🧇</div>
+          <div class="menu-card-top"><h4>Waffles with Cream & Fruit</h4><span class="price">Rs 550</span></div>
+          <p>Topped with cream and seasonal fruit.</p>
+        </div>
+        <div class="menu-card">
+          <div class="icon">🍫</div>
+          <div class="menu-card-top"><h4>Fudge Brownie with Movenpick</h4><span class="price">Rs 580</span></div>
+          <p>Warm fudge brownie with a scoop of Swiss ice cream.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -424,7 +502,7 @@
         <div class="info-icon">🍽️</div>
         <div><h4>Service</h4><p>Dine-in and takeout · Rs 500–1,000 per person</p></div>
       </div>
-      <a href="tel:+9779814176338" class="btn-primary" style="margin-top:10px;">Call now</a>
+      <a href="https://wa.me/9779814176338?text=Hi!%20I'd%20like%20to%20get%20in%20touch" target="_blank" class="btn-primary" style="margin-top:10px;">Message us on WhatsApp</a>
     </div>
     <div style="border-radius:20px; overflow:hidden; min-height:340px;">
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3515.870449117412!2d83.95911298843043!3d28.211248363831796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39959542d012494b%3A0x2eaa8f16f8f282d1!2sCafe%20Camellia!5e0!3m2!1sen!2sus!4v1784658550919!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -452,32 +530,48 @@
     <p class="modal-sub">Select popular items, or tell us what else you'd like.</p>
 
     <div class="order-items" id="orderItems">
-      <div class="order-item" data-name="Signature Cheesecake">
-        <span>🍰 Signature Cheesecake</span>
+      <div class="order-item" data-name="Cheesecake" data-price="Rs 570">
+        <span class="item-name">🍰 Cheesecake <span class="item-price">Rs 570</span></span>
         <div class="qty-control">
           <button onclick="changeQty(this,-1)">−</button>
           <span class="qty">0</span>
           <button onclick="changeQty(this,1)">+</button>
         </div>
       </div>
-      <div class="order-item" data-name="Camellia Special Breakfast">
-        <span>🍳 Camellia Special Breakfast</span>
+      <div class="order-item" data-name="Camellia Special (Bacon)" data-price="Rs 640">
+        <span class="item-name">🍳 Camellia Special (Bacon) <span class="item-price">Rs 640</span></span>
         <div class="qty-control">
           <button onclick="changeQty(this,-1)">−</button>
           <span class="qty">0</span>
           <button onclick="changeQty(this,1)">+</button>
         </div>
       </div>
-      <div class="order-item" data-name="Vienna Latte">
-        <span>☕ Vienna Latte</span>
+      <div class="order-item" data-name="Cream Latte (Vienna)" data-price="Rs 400">
+        <span class="item-name">☕ Cream Latte (Vienna) <span class="item-price">Rs 400</span></span>
         <div class="qty-control">
           <button onclick="changeQty(this,-1)">−</button>
           <span class="qty">0</span>
           <button onclick="changeQty(this,1)">+</button>
         </div>
       </div>
-      <div class="order-item" data-name="French Omelette">
-        <span>🍳 French Omelette</span>
+      <div class="order-item" data-name="Tiramisu Original" data-price="Rs 490">
+        <span class="item-name">🍮 Tiramisu Original <span class="item-price">Rs 490</span></span>
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">−</button>
+          <span class="qty">0</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+      <div class="order-item" data-name="Croissant, Cream Cheese" data-price="Rs 270">
+        <span class="item-name">🥐 Croissant, Cream Cheese <span class="item-price">Rs 270</span></span>
+        <div class="qty-control">
+          <button onclick="changeQty(this,-1)">−</button>
+          <span class="qty">0</span>
+          <button onclick="changeQty(this,1)">+</button>
+        </div>
+      </div>
+      <div class="order-item" data-name="Waffles with Cream & Fruit" data-price="Rs 550">
+        <span class="item-name">🧇 Waffles with Cream & Fruit <span class="item-price">Rs 550</span></span>
         <div class="qty-control">
           <button onclick="changeQty(this,-1)">−</button>
           <span class="qty">0</span>
@@ -521,7 +615,7 @@ function sendOrder(){
   items.forEach(item => {
     const qty = parseInt(item.querySelector('.qty').textContent);
     if(qty > 0){
-      orderLines.push(`${qty}x ${item.getAttribute('data-name')}`);
+      orderLines.push(`${qty}x ${item.getAttribute('data-name')} (${item.getAttribute('data-price')})`);
     }
   });
 
